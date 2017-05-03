@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Autos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Año</th>
+      <th>Precio</th>
+      <th>Fecha adquisicion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @autos.each do |auto| %>
+      <tr>
+        <td><%= auto.marca %></td>
+        <td><%= auto.modelo %></td>
+        <td><%= auto.anio %></td>
+        <td><%= auto.precio %></td>
+        <td><%= auto.fecha_adquisicion %></td>
+        <td><%= link_to 'Consultar', auto, class:'button radius' %></td>
+        <td><%= link_to 'Editar', edit_auto_path(auto), class:'button radius warning' %></td>
+        <td><%= link_to 'Eliminar', auto, method: :delete, data: { confirm: '¿Está seguro de eliminar?' }, class:'button radius alert'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Auto', new_auto_path, class:'button round success' %>
